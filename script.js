@@ -157,25 +157,17 @@ if (appointmentForm) {
       date: formData.get("date"),
       time: formData.get("time"),
       message: formData.get("message")
-    }])
+    }]);
     
-    if (error) {
-      showAlert("Gagal menyimpan data: " + error.message, "error")
-    } else {
-      showAlert("Janji berhasil dibuat! Nomor antrian Anda akan dikirim via email.", "success")
-      appointmentForm.reset()
-    }
-
-      const result = await response.json()
-
-      if (result.success) {
-        showAlert(result.message, "success")
-        appointmentForm.reset()
+      if (error) {
+        showAlert("Gagal menyimpan data: " + error.message, "error");
       } else {
-        showAlert(result.message, "error")
+        showAlert("Janji berhasil dibuat!", "success");
+        appointmentForm.reset();
       }
     } catch (error) {
-      showAlert("Terjadi kesalahan. Silakan coba lagi.", "error")
+      showAlert("Terjadi kesalahan koneksi ke database.", "error");
+    }
     } finally {
       // Reset button state
       submitBtn.disabled = false
