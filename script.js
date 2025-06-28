@@ -162,7 +162,7 @@ if (appointmentForm) {
       if (error) {
         showAlert("Gagal menyimpan data: " + error.message, "error");
       } else {
-        showAlert("Janji berhasil dibuat!", "success");
+        showAlert("Janji berhasil dibuat! Kamu akan dihubungi melalui WA atau Telegram", "success");
         appointmentForm.reset();
       }
     } catch (error) {
