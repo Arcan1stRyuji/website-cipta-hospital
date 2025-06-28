@@ -148,7 +148,7 @@ if (appointmentForm) {
     submitBtn.innerHTML = '<div class="loading"></div> Memproses...'
 
     try {
-      const { data, error } = await supabase.from('appointments').insert([{
+      const { data, error } = await client.from('appointments').insert([{
       name: formData.get("name"),
       email: formData.get("email"),
       phone: formData.get("phone"),
