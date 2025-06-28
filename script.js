@@ -167,7 +167,6 @@ if (appointmentForm) {
       }
     } catch (error) {
       showAlert("Terjadi kesalahan koneksi ke database.", "error");
-    }
     } finally {
       // Reset button state
       submitBtn.disabled = false
