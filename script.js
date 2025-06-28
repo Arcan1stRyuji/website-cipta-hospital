@@ -169,10 +169,10 @@ if (appointmentForm) {
       showAlert("Terjadi kesalahan koneksi ke database.", "error");
     } finally {
       // Reset button state
-      submitBtn.disabled = false
-      submitBtn.innerHTML = originalText
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
     }
-  })
+  });
 }
 
 // Intersection Observer for animations
