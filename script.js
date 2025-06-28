@@ -148,10 +148,23 @@ if (appointmentForm) {
     submitBtn.innerHTML = '<div class="loading"></div> Memproses...'
 
     try {
-      const response = await fetch("process_appointment.php", {
-        method: "POST",
-        body: formData,
-      })
+      const { data, error } = await supabase.from('appointments').insert([{
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      service: formData.get("service"),
+      doctor: formData.get("doctor"),
+      date: formData.get("date"),
+      time: formData.get("time"),
+      message: formData.get("message")
+    }])
+    
+    if (error) {
+      showAlert("Gagal menyimpan data: " + error.message, "error")
+    } else {
+      showAlert("Janji berhasil dibuat! Nomor antrian Anda akan dikirim via email.", "success")
+      appointmentForm.reset()
+    }
 
       const result = await response.json()
 
